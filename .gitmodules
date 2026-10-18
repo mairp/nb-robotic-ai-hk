@@ -1,0 +1,3 @@
+[submodule "nebius-starter-skill"]
+	path = nebius-starter-skill
+	url = https://github.com/dariolaportanebius/nebius-starter-skill.git
