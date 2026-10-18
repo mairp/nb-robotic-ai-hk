@@ -1,0 +1,31 @@
+# Team GPU VM: Isaac Sim collection + GR00T training (main + ablation) + GR00T server.
+# Create only after the cosmos-reason2 endpoint has released the GPU (one-GPU project).
+metadata:
+  parent_id: REDACTED_PROJECT_ID   # group31-project, uk-south2
+  name: so101-gpu
+spec:
+  resources:
+    platform: gpu-rtx6000-a                     # RTX PRO 6000 Blackwell (RT cores -> Isaac Sim OK)
+    preset: 1gpu-24vcpu-218gb
+  boot_disk:
+    attach_mode: read_write
+    managed_disk:
+      name: so101-gpu-boot
+      spec:
+        type: network_ssd
+        size_gibibytes: 300                     # repo create_vm.sh default; 400 GiB free of 500
+        source_image_family:
+          image_family: ubuntu24.04-cuda13.0    # same family the starter repo uses
+  network_interfaces:
+    - name: eth0
+      subnet_id: REDACTED_SUBNET_ID   # default-subnet-mplqaomr
+      ip_address: {}
+      public_ip_address: {}                     # uses the project's only public IPv4 (SSH + tunnel)
+  cloud_init_user_data: |
+    #cloud-config
+    users:
+      - name: ubuntu
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        shell: /bin/bash
+        ssh_authorized_keys:
+          - ssh-rsa REDACTED_SSH_PUBLIC_KEY== redacted

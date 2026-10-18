@@ -1,0 +1,51 @@
+{
+ "model": "cosmos-reason2",
+ "rule": "keep if final_cube_location == on_green_pad and cube_and_gripper_visible and overall_score >= 6",
+ "clips": {
+  "cosmos/negative_controls/early_cut_000003.mp4": {
+   "task_success": true,
+   "cube_and_gripper_visible": true,
+   "released_on_pad": true,
+   "overall_score": 10,
+   "issues": "",
+   "final_cube_location": "on_table_not_on_pad",
+   "source": "negative_control",
+   "keep": false,
+   "latency_s": 1.3
+  },
+  "cosmos/negative_controls/early_cut_000040.mp4": {
+   "task_success": true,
+   "cube_and_gripper_visible": true,
+   "released_on_pad": true,
+   "overall_score": 10,
+   "issues": "",
+   "final_cube_location": "on_green_pad",
+   "source": "negative_control",
+   "keep": true,
+   "latency_s": 1.2
+  },
+  "cosmos/negative_controls/early_cut_000090.mp4": {
+   "task_success": true,
+   "cube_and_gripper_visible": true,
+   "released_on_pad": true,
+   "overall_score": 10,
+   "issues": "",
+   "final_cube_location": "on_table_not_on_pad",
+   "source": "negative_control",
+   "keep": false,
+   "latency_s": 1.3
+  },
+  "cosmos/negative_controls/early_cut_000140.mp4": {
+   "task_success": true,
+   "cube_and_gripper_visible": true,
+   "released_on_pad": true,
+   "overall_score": 10,
+   "issues": "",
+   "final_cube_location": "on_green_pad",
+   "source": "negative_control",
+   "keep": true,
+   "latency_s": 1.2
+  }
+ },
+ "summary": "2 of 4 dropped (keep if final_cube_location == on_green_pad and cube_and_gripper_visible and overall_score >= 6)"
+}

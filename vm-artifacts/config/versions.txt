@@ -1,0 +1,6 @@
+# so101-gpu snapshot, 2026-10-18 13:35 UTC (Isaac Sim 6.1.0 in ~/work/env_isaaclab)
+IsaacLab 24a2ebfd7e310b289df3e0343b2213767a76b9e6 2026-09-26 09:25:31 -0700
+Isaac-GR00T dac54b313160c201c450f97df0fd74ebd379c892
+so101_sim_pickplace 52b23a9d3a9cd50357c7ee73f0df30c9c6a05d67
+NVIDIA RTX PRO 6000 Blackwell Server Edition, 580.173.02
+container cosmos-reason vllm/vllm-openai:v0.31.0 Up 24 minutes

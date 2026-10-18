@@ -1,0 +1,65 @@
+{
+  "team": "group31",
+  "final_checkpoint": "checkpoints/ablation_sim_only/ (checkpoint-3000)",
+  "policy": "GR00T N1.7-3B (nvidia/GR00T-N1.7-3B), embodiment NEW_EMBODIMENT",
+  "task": "pick up the red block and place it on the green pad",
+  "note": "Real-teleop recording failed after calibration issues (2 episodes recorded); the 'main' (sim+cosmos+real) run was therefore NOT trained. The submitted policy is the sim-only ablation run. Honest scope: pipeline for main was built and the Cosmos curation stage is fully validated with negative controls.",
+  "episodes": {
+    "submitted_policy": {
+      "sim": 150,
+      "cosmos_transfer": 0,
+      "real_teleop": 0,
+      "total": 150
+    },
+    "collected_unused": {
+      "sim_extra_seed1": 100,
+      "real_teleop": 2
+    }
+  },
+  "limits": {
+    "real_max": 50,
+    "total_max": 300
+  },
+  "datasets_in_bucket": "submission/datasets/ (raw episodes + videos: so101_sim_pickplace 313 MB, so101_sim_pickplace_b 209 MB)",
+  "datasets": {
+    "so101_sim_pickplace": {"episodes": 150, "frames": 46316, "seed": 0, "fps": 30, "used_in_training": true},
+    "so101_sim_pickplace_b": {"episodes": 100, "frames": 30885, "seed": 1, "used_in_training": false},
+    "so101_real_teleop": {"episodes": 2, "frames": 1494, "version": "v3.0", "cameras": ["front", "wrist"], "used_in_training": false}
+  },
+  "cosmos": {
+    "transfer": {
+      "model": "nvidia/Cosmos-Transfer2.5-2B",
+      "status": "not run (no hosted endpoint available; not run on VM to protect the training window)",
+      "clips_in": 0,
+      "clips_out": 0
+    },
+    "reason": {
+      "model": "nvidia/Cosmos-Reason2-2B self-hosted on so101-gpu (vLLM v0.31.0, 127.0.0.1:8000, 20% GPU)",
+      "curation_files": ["curation_sim.json", "curation_negative_controls.json"],
+      "decision": "keep if task_success and cube_and_gripper_visible and overall_score >= 6",
+      "sim_clips_scored": 150,
+      "sim_clips_kept": 150,
+      "negative_controls": {
+        "crafted": 4,
+        "dropped": 2,
+        "detail": "The 2 clips whose cube ended off-pad (early_cut_000003, early_cut_000090) were dropped via final_cube_location; the 2 that genuinely ended on-pad were kept. Filter verdict was correct on 4 of 4 controls."
+      }
+    }
+  },
+  "training": {
+    "cloud": "Nebius AI Cloud, uk-south2, 1x RTX PRO 6000 Blackwell 96 GB (so101-gpu)",
+    "steps": 3000,
+    "batch": 16,
+    "train_loss": 0.251,
+    "final_loss": 0.105,
+    "wall_time_s": 1760,
+    "finished_utc": "2026-10-18 14:51",
+    "checkpoint": "checkpoints/ablation_sim_only/checkpoint-3000",
+    "main_run": "not trained (blocked on real episodes)"
+  },
+  "eval": {
+    "submitted_policy": "0/9 (closed-loop in the Isaac Lab scene, 9 grid spots; every episode timed out at 600 steps; policy server inference was healthy at ~130 ms/step)",
+    "spots": 9,
+    "note": "Evaluated in-sim against the training distribution; the 3k-step sim-only policy failed to complete pick-and-place within the step budget on all spots."
+  }
+}

@@ -1,0 +1,27 @@
+{
+ "model": "cosmos-reason2",
+ "rule": "keep if task_success and cube_and_gripper_visible and overall_score >= 6",
+ "clips": {
+  "datasets/local/smoke_test/videos/chunk-000/observation.images.front/episode_000000.mp4": {
+   "task_success": true,
+   "cube_and_gripper_visible": true,
+   "released_on_pad": true,
+   "overall_score": 10,
+   "issues": "",
+   "source": "sim",
+   "keep": true,
+   "latency_s": 1.3
+  },
+  "datasets/local/smoke_test/videos/chunk-000/observation.images.front/episode_000001.mp4": {
+   "task_success": true,
+   "cube_and_gripper_visible": true,
+   "released_on_pad": true,
+   "overall_score": 10,
+   "issues": "",
+   "source": "sim",
+   "keep": true,
+   "latency_s": 1.2
+  }
+ },
+ "summary": "0 of 2 dropped (keep if task_success and cube_and_gripper_visible and overall_score >= 6)"
+}

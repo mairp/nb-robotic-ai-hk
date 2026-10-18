@@ -1,0 +1,38 @@
+{
+  "skillOverrides": {
+    "antares-scan": "off",
+    "anthropic-skills:docs": "off",
+    "anthropic-skills:docx": "off",
+    "anthropic-skills:import-memory": "on",
+    "anthropic-skills:morning": "off",
+    "anthropic-skills:pdf": "off",
+    "anthropic-skills:pptx": "off",
+    "anthropic-skills:skill-creator": "off",
+    "anthropic-skills:xlsx": "off",
+    "autoharness:learn": "off",
+    "fleet-control": "off",
+    "gpu-ops": "off",
+    "jupyter-pull": "off",
+    "local-model-ops": "off",
+    "mixture-of-loops": "on",
+    "proxmox-ops": "off",
+    "proxmox-triage": "off",
+    "spec-reconcile": "on",
+    "speckit-analyze": "on",
+    "speckit-checklist": "on",
+    "speckit-clarify": "on",
+    "speckit-constitution": "on",
+    "speckit-converge": "on",
+    "speckit-implement": "on",
+    "speckit-plan": "on",
+    "specstride-reverse": "user-invocable-only",
+    "speckit-specify": "on",
+    "speckit-tasks": "on",
+    "speckit-taskstoissues": "on",
+    "speckit-batch": "on",
+    "video-to-deck": "off"
+  },
+  "enabledPlugins": {
+    "nebius-cloud@nebius": true
+  }
+}
